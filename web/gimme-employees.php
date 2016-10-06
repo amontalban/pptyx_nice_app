@@ -8,9 +8,21 @@ $query = "SELECT * FROM employees WHERE gender = 'M' AND birth_date = '1965-02-0
 
 $stmt = $db->query($query );
  
-echo "<b>emp_no&nbsp;first_name&nbsp;last_name&nbsp;gender&nbsp;hire_date&nbsp;birth_date</b><br>"; //etc...
+echo "<html>
+ <body>
+  <table border='1'>
+   <tr>
+    <th>emp_no</th>
+    <th>first name</th>
+    <th>last name</th>
+    <th>gender</th>
+    <th>hire_date</th>
+    <th>birth_date</th>        
+   </tr>";
 while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-    echo "$row[emp_no]&nbsp;$row[first_name]&nbsp;$row[last_name]&nbsp;$row[gender]&nbsp;$row[hire_date]&nbsp;$row[birth_date]<br>"; //etc...
+    echo "<tr><td>$row[emp_no]</td><td>$row[first_name]</td><td>$row[last_name]</td><td>$row[gender]</td><td>$row[hire_date]</td><td>$row[birth_date]</td></tr>";
 }
+
+echo "</table></body></html>";
 
 ?>
